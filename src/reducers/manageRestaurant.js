@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import cuid from 'cuid';
-export const cuidFn = cuid;
 
 const rootReducer = combineReducers({
   restaurants: manageRestaurants,

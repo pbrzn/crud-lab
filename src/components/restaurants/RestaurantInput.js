@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Restaurants from './Restaurants';
+
+// import Restaurants from './Restaurants';
 
 class RestaurantInput extends Component {
 
-  state = {
-    text: ''
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: ''
+    }
   }
 
   handleChange = event => {
@@ -23,11 +26,11 @@ class RestaurantInput extends Component {
   }
 
   render() {
-    debugger
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text"
+          <input
+            type="text"
             name="text"
             id="text"
             value={this.state.text}
@@ -39,11 +42,12 @@ class RestaurantInput extends Component {
     );
   }
 };
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addRestaurant: text => dispatch({ type: 'ADD_RESTAURANT', text: text })
-  }
-}
-
-export default connect(null, mapDispatchToProps)(RestaurantInput);
+//
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addRestaurant: text => dispatch({ type: 'ADD_RESTAURANT', text: text })
+//   }
+// }
+//
+// export default connect(null, mapDispatchToProps)(RestaurantInput);
+export default RestaurantInput;

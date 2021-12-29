@@ -6,9 +6,12 @@ class Restaurants extends Component {
 
   renderRestaurants = () => this.props.restaurants.map(restaurant => {
     return (
-      <li key={restaurant.id} id={restaurant.id}>
+      <li id={restaurant.id}>
         <Restaurant
+          key={restaurant.id}
           restaurant={restaurant}
+          reviews={this.props.reviews}
+          addReview={this.props.addReview}
           delete={this.props.delete}
         />
       </li>
@@ -24,12 +27,9 @@ class Restaurants extends Component {
   }
 };
 
-const mapStateToProps = state => {
-  return { restaurants: state.restaurants }
-}
 
 const mapDispatchToProps = dispatch => {
   return { delete: id => dispatch({ type: 'DELETE_RESTAURANT', id: id }) }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Restaurants);
+export default connect(null, mapDispatchToProps)(Restaurants);
